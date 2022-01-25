@@ -1,1 +1,63 @@
-<p>listar-herois works!</p>
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Pesquisar"
+          [(ngModel)]="nome"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="pesquisar()"
+          >
+            Buscar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Lista de Heróis</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let heroi of herois; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="selecionar(heroi, i)"
+        >
+          {{ heroi.nome }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="limpar()">
+        Excluir Todos
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentHeroi.id">
+        <h4>Herói</h4>
+        <div>
+          <label><strong>Nome:</strong></label> {{ currentHeroi.nome }}
+        </div>
+        <div>
+          <label><strong>Nome Civil:</strong></label>
+          {{ currentHeroi.nomeCivil }}
+        </div>
+        <div>
+          <label><strong>Universo:</strong></label>
+          {{ currentHeroi.universo }}
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/herois/{{ currentHeroi.id }}">
+          Editar
+        </a>
+      </div>
+  
+      <div *ngIf="!currentHeroi">
+        <br />
+        <p>Selecione um herói...</p>
+      </div>
+    </div>
+  </div>
