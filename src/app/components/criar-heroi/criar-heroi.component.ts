@@ -16,6 +16,8 @@ export class CriarHeroiComponent implements OnInit {
   };
   submitted = false;
 
+  universos = ['Marvel', 'DC'];
+
   constructor(private heroiService: HeroiService) { }
 
   ngOnInit(): void {
