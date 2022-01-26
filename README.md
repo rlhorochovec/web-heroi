@@ -2,11 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
 
-## Production server
+## Production server [![Heroku App Status](http://heroku-shields.herokuapp.com/web-heroi)](https://web-heroi.herokuapp.com)
 
-Navigate to `http://localhost:4200/`
-
-[![Heroku App Status](http://heroku-shields.herokuapp.com/web-heroi)](https://webheroi.herokuapp.com)
+Navigate to [`https://web-heroi.herokuapp.com`](https://web-heroi.herokuapp.com).
 
 ## Development server
 
