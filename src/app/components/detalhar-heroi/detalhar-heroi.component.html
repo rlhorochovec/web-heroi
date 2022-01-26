@@ -15,8 +15,9 @@
 
             <div class="form-group">
                 <label for="universo">Universo</label>
-                <input type="text" class="form-control" id="universo" [(ngModel)]="currentHeroi.universo"
-                    name="universo" />
+                <select class="form-control" id="universo" required [(ngModel)]="currentHeroi.universo" name="universo">
+                    <option *ngFor="let universo of universos" [value]="universo">{{ universo }}</option>
+                </select>
             </div>
         </form>
 

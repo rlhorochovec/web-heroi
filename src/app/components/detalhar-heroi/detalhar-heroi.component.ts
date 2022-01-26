@@ -17,6 +17,8 @@ export class DetalharHeroiComponent implements OnInit {
   };
   message = '';
 
+  universos = ['Marvel', 'DC'];
+
   constructor(
     private heroiService: HeroiService,
     private route: ActivatedRoute,
