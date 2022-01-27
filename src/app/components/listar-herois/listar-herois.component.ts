@@ -9,10 +9,15 @@ import { HeroiService } from 'src/app/services/heroi.service';
 })
 export class ListarHeroisComponent implements OnInit {
 
-  herois?: Heroi[];
+  herois: Heroi[] = [];
   currentHeroi: Heroi = {};
   currentIndex = -1;
   nome = '';
+
+  page = 1;
+  count = 0;
+  pageSize = 3;
+  pageSizes = [3, 6, 9];
 
   constructor(private heroiService: HeroiService) { }
 
@@ -20,16 +25,54 @@ export class ListarHeroisComponent implements OnInit {
     this.listar();
   }
 
+  getRequestParams(searchName: string, page: number, pageSize: number): any {
+    let params: any = {};
+
+    if (searchName) {
+      params[`nome`] = searchName;
+    }
+
+    if (page) {
+      params[`page`] = page - 1;
+    }
+
+    if (pageSize) {
+      params[`size`] = pageSize;
+    }
+
+    return params;
+  }
+
   listar(): void {
-    this.heroiService.list()
+    const params = this.getRequestParams(this.nome, this.page, this.pageSize);
+
+    this.heroiService.getAll(params)
       .subscribe(
-        data => {
-          this.herois = data;
-          console.log(data);
+        response => {
+          const { herois, totalItems } = response;
+          this.herois = herois;
+          this.count = totalItems;
+          console.log(response);
         },
         error => {
           console.log(error);
         });
+  }
+
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.listar();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.listar();
+  }
+
+  searchName(): void {
+    this.page = 1;
+    this.listar();
   }
 
   recarregar(): void {
@@ -49,21 +92,6 @@ export class ListarHeroisComponent implements OnInit {
         response => {
           console.log(response);
           this.recarregar();
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
-  pesquisar(): void {
-    this.currentHeroi = {};
-    this.currentIndex = -1;
-
-    this.heroiService.findByName(this.nome)
-      .subscribe(
-        data => {
-          this.herois = data;
-          console.log(data);
         },
         error => {
           console.log(error);
