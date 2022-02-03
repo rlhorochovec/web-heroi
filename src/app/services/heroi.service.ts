@@ -25,7 +25,7 @@ export class HeroiService {
 
   // Show lists of item
   list(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/all`).pipe(
+    return this.httpClient.get(`${this.apiUrl}/lista`).pipe(
       catchError(this.handleError)
     );
   }
@@ -58,7 +58,7 @@ export class HeroiService {
   }
 
   deleteAll(): Observable<any> {
-    return this.httpClient.delete(`${this.apiUrl}/delete/all`);
+    return this.httpClient.delete(this.apiUrl);
   }
 
   // Handle API errors
