@@ -3,20 +3,20 @@
         <h4>Herói</h4>
         <form>
             <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" [(ngModel)]="currentHeroi.nome" name="nome" />
+                <label for="name">Nome</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="currentHeroi.name" name="name" />
             </div>
 
             <div class="form-group">
-                <label for="nomeCivil">Nome Civil</label>
-                <input type="text" class="form-control" id="nomeCivil" [(ngModel)]="currentHeroi.nomeCivil"
-                    name="nomeCivil" />
+                <label for="civil">Nome Civil</label>
+                <input type="text" class="form-control" id="civil" [(ngModel)]="currentHeroi.civil"
+                    name="civil" />
             </div>
 
             <div class="form-group">
-                <label for="universo">Universo</label>
-                <select class="form-control" id="universo" required [(ngModel)]="currentHeroi.universo" name="universo">
-                    <option *ngFor="let universo of universos" [value]="universo">{{ universo }}</option>
+                <label for="universe">Universo</label>
+                <select class="form-control" id="universe" required [(ngModel)]="currentHeroi.universe" name="universe">
+                    <option *ngFor="let universe of universes" [value]="universe">{{ universe }}</option>
                 </select>
             </div>
         </form>

@@ -1,7 +1,7 @@
 <div class="list row">
     <div class="col-md-8">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Pesquisar" [(ngModel)]="nome" />
+            <input type="text" class="form-control" placeholder="Pesquisar" [(ngModel)]="name" />
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type="button" (click)="searchName()">
                     Buscar
@@ -24,7 +24,7 @@
                 currentPage: page,
                 totalItems: count
               }; let i = index" [class.active]="i == currentIndex" (click)="selecionar(heroi, i)">
-                {{ heroi.nome }}
+                {{ heroi.name }}
             </li>
         </ul>
 
@@ -46,15 +46,15 @@
     <div *ngIf="currentHeroi.id">
         <h4>Herói</h4>
         <div>
-            <label><strong>Nome:</strong></label> {{ currentHeroi.nome }}
+            <label><strong>Nome:</strong></label> {{ currentHeroi.name }}
         </div>
         <div>
             <label><strong>Nome Civil:</strong></label>
-            {{ currentHeroi.nomeCivil }}
+            {{ currentHeroi.civil }}
         </div>
         <div>
             <label><strong>Universo:</strong></label>
-            {{ currentHeroi.universo }}
+            {{ currentHeroi.universe }}
         </div>
 
         <a class="badge badge-warning" routerLink="/herois/{{ currentHeroi.id }}">

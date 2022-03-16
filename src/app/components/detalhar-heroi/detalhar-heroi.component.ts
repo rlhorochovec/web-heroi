@@ -11,13 +11,13 @@ import { Heroi } from 'src/app/models/heroi.model';
 export class DetalharHeroiComponent implements OnInit {
 
   currentHeroi: Heroi = {
-    nome: '',
-    nomeCivil: '',
-    universo: ''
+    name: '',
+    civil: '',
+    universe: ''
   };
   message = '';
 
-  universos = ['Marvel', 'DC'];
+  universes = ['Marvel', 'DC'];
 
   constructor(
     private heroiService: HeroiService,
