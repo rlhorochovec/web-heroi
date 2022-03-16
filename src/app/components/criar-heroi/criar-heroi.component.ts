@@ -10,13 +10,13 @@ import { HeroiService } from 'src/app/services/heroi.service';
 export class CriarHeroiComponent implements OnInit {
 
   heroi: Heroi = {
-    nome: '',
-    nomeCivil: '',
-    universo: ''
+    name: '',
+    civil: '',
+    universe: ''
   };
   submitted = false;
 
-  universos = ['Marvel', 'DC'];
+  universes = ['Marvel', 'DC'];
 
   constructor(private heroiService: HeroiService) { }
 
@@ -25,9 +25,9 @@ export class CriarHeroiComponent implements OnInit {
 
   salvar(): void {
     const data = {
-      nome: this.heroi.nome,
-      nomeCivil: this.heroi.nomeCivil,
-      universo: this.heroi.universo
+      name: this.heroi.name,
+      civil: this.heroi.civil,
+      universe: this.heroi.universe
     };
 
     this.heroiService.create(data)
@@ -44,9 +44,9 @@ export class CriarHeroiComponent implements OnInit {
   novo(): void {
     this.submitted = false;
     this.heroi = {
-      nome: '',
-      nomeCivil: '',
-      universo: ''
+      name: '',
+      civil: '',
+      universe: ''
     };
   }
 }

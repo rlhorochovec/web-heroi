@@ -10,7 +10,7 @@ import { Heroi } from '../models/heroi.model';
 
 export class HeroiService {
 
-  apiUrl: string = 'https://heroi-api.herokuapp.com/api/herois';
+  apiUrl: string = 'https://heroi-api.herokuapp.com/api/heroes';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private httpClient: HttpClient) { }
@@ -20,12 +20,12 @@ export class HeroiService {
   }
 
   findByName(nome: any): Observable<Heroi[]> {
-    return this.httpClient.get<Heroi[]>(`${this.apiUrl}?nome=${nome}`);
+    return this.httpClient.get<Heroi[]>(`${this.apiUrl}?name=${nome}`);
   }
 
   // Show lists of item
   list(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/lista`).pipe(
+    return this.httpClient.get(`${this.apiUrl}/list`).pipe(
       catchError(this.handleError)
     );
   }

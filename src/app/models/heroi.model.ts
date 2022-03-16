@@ -1,6 +1,6 @@
 export class Heroi {
     id?: any;
-    nome?: string;
-    nomeCivil?: string;
-    universo?: string;
+    name?: string;
+    civil?: string;
+    universe?: string;
 }

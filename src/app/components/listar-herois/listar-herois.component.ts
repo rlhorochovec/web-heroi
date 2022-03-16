@@ -12,7 +12,7 @@ export class ListarHeroisComponent implements OnInit {
   herois: Heroi[] = [];
   currentHeroi: Heroi = {};
   currentIndex = -1;
-  nome = '';
+  name = '';
 
   page = 1;
   count = 0;
@@ -29,7 +29,7 @@ export class ListarHeroisComponent implements OnInit {
     let params: any = {};
 
     if (searchName) {
-      params[`nome`] = searchName;
+      params[`name`] = searchName;
     }
 
     if (page) {
@@ -44,13 +44,13 @@ export class ListarHeroisComponent implements OnInit {
   }
 
   listar(): void {
-    const params = this.getRequestParams(this.nome, this.page, this.pageSize);
+    const params = this.getRequestParams(this.name, this.page, this.pageSize);
 
     this.heroiService.getAll(params)
       .subscribe(
         response => {
-          const { herois, totalItems } = response;
-          this.herois = herois;
+          const { heroes, totalItems } = response;
+          this.herois = heroes;
           this.count = totalItems;
           console.log(response);
         },
