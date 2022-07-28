@@ -8,7 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 
 export class ImagemHeroiService {
 
-  apiUrl: string = 'http://localhost:8080/api/heroes';
+  apiUrl: string = 'https://heroi-api.herokuapp.com/api/heroes';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   
   constructor(private httpClient: HttpClient) { }
