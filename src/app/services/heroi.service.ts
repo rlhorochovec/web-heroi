@@ -16,11 +16,15 @@ export class HeroiService {
   constructor(private httpClient: HttpClient) { }
 
   getAll(params: any): Observable<any> {
-    return this.httpClient.get<any>(this.apiUrl, { params });
+    return this.httpClient.get<any>(this.apiUrl, { params }).pipe(
+      catchError(this.handleError)
+    );
   }
 
   findByName(nome: any): Observable<Heroi[]> {
-    return this.httpClient.get<Heroi[]>(`${this.apiUrl}?name=${nome}`);
+    return this.httpClient.get<Heroi[]>(`${this.apiUrl}?name=${nome}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
   // Show lists of item
@@ -58,7 +62,9 @@ export class HeroiService {
   }
 
   deleteAll(): Observable<any> {
-    return this.httpClient.delete(this.apiUrl);
+    return this.httpClient.delete(this.apiUrl).pipe(
+      catchError(this.handleError)
+    );
   }
 
   // Handle API errors
