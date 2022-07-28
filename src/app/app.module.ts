@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { CriarHeroiComponent } from './components/criar-heroi/criar-heroi.component';
 import { DetalharHeroiComponent } from './components/detalhar-heroi/detalhar-heroi.component';
 import { ListarHeroisComponent } from './components/listar-herois/listar-herois.component';
+import { EnviarImagemComponent } from './components/enviar-imagem/enviar-imagem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CriarHeroiComponent,
     DetalharHeroiComponent,
-    ListarHeroisComponent
+    ListarHeroisComponent,
+    EnviarImagemComponent
   ],
   imports: [
     BrowserModule,

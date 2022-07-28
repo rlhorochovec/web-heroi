@@ -3,4 +3,6 @@ export class Heroi {
     name?: string;
     civil?: string;
     universe?: string;
+    image?: string;
+    imagePath?: string;
 }

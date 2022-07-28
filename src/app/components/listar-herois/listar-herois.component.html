@@ -42,30 +42,23 @@
         </button>
     </div>
 
-<div class="col-md-6">
-    <div *ngIf="currentHeroi.id">
-        <h4>Herói</h4>
-        <div>
-            <label><strong>Nome:</strong></label> {{ currentHeroi.name }}
-        </div>
-        <div>
-            <label><strong>Nome Civil:</strong></label>
-            {{ currentHeroi.civil }}
-        </div>
-        <div>
-            <label><strong>Universo:</strong></label>
-            {{ currentHeroi.universe }}
+    <div class="col-md-6">
+        <div *ngIf="currentHeroi.id">
+            <div>
+                <img src="{{ currentHeroi.imagePath }}" class="rounded-circle" style="width: 150px;" />
+                <h5 class="mb-2"><strong> {{ currentHeroi.name }} </strong></h5>
+                <p class="text-muted">{{ currentHeroi.civil }} <span class="badge bg-primary">{{ currentHeroi.universe}}</span></p>
+            </div>
+
+
+            <a class="badge badge-warning" routerLink="/herois/{{ currentHeroi.id }}">
+                Editar
+            </a>
         </div>
 
-        <a class="badge badge-warning" routerLink="/herois/{{ currentHeroi.id }}">
-            Editar
-        </a>
+        <div *ngIf="!currentHeroi.id">
+            
+        </div>
     </div>
-
-    <div *ngIf="!currentHeroi.id">
-        <br />
-        <p>Selecione um herói...</p>
-    </div>
-</div>
 
 </div>
