@@ -9,16 +9,15 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-8">
+    <div class="col-12">
         <label class="btn btn-default p-0">
             <input type="file" accept="image/*" multiple (change)="selectFiles($event)" />
         </label>
-    </div>
-    <div class="col-4">
-        <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="uploadFiles()">
+        <p><button class="btn btn-success" [disabled]="!selectedFiles" (click)="uploadFiles()">
             Enviar
-        </button>
+        </button></p>
     </div>
+    
 </div>
 <div>
     <img *ngFor='let preview of previews' [src]="preview" class="preview">
